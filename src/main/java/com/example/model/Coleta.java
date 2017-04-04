@@ -12,18 +12,32 @@ public class Coleta {
 	@Id
 	private BigInteger id;
 	
-	private LocalDate checkIn;
+	private LocalDate checkin;
 	
 	private String fornecedor;
 	
 	private String cidade;
 
-	public LocalDate getCheckIn() {
-		return checkIn;
+	
+	public Coleta()
+	{}
+	
+	
+	public Coleta(String fornecedor, String cidade, LocalDate checkin) {
+		super();
+		this.checkin = checkin;
+		this.fornecedor = fornecedor;
+		this.cidade = cidade;
 	}
 
-	public void setCheckIn(LocalDate checkIn) {
-		this.checkIn = checkIn;
+
+
+	public LocalDate getCheckin() {
+		return checkin;
+	}
+
+	public void setCheckin(LocalDate checkin) {
+		this.checkin = checkin;
 	}
 
 	public String getFornecedor() {

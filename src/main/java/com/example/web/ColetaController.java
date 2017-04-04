@@ -39,7 +39,7 @@ public class ColetaController {
 	{
 		
 		Coleta c = new Coleta();
-		c.setCheckIn(LocalDate.parse(checkIn, DateTimeFormatter.ISO_DATE));
+		c.setCheckin(LocalDate.parse(checkIn, DateTimeFormatter.ISO_DATE));
 		c.setCidade(cidade);
 		c.setFornecedor(fornecedor);
 		return repository.save(c);

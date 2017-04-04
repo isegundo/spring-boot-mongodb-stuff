@@ -12,6 +12,8 @@ import com.example.model.Coleta;
 public interface ColetaRepository extends MongoRepository<Coleta, Long>, ColetaRepositoryCustom {
 	
 	public List<Coleta> findByCidade(String cidade);
+	public List<Coleta> findByFornecedor(String fornecedor);
+	public List<Coleta> findByCheckin(LocalDate checkin);
 	
 	@Query(value="{'checkIn': ?0, 'fornecedor': ?1, 'cidade': ?2}", delete=true)
 	public Long deleteBy(LocalDate checkIn, String fornecedor, String cidade);
