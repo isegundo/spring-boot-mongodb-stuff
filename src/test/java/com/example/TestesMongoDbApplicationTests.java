@@ -38,10 +38,10 @@ public class TestesMongoDbApplicationTests {
 		list.add(new Coleta("Ita", "Curitiba", LocalDate.of(2017, 05, 01)));	
 		list.add(new Coleta("Carol", "Curitiba", LocalDate.of(2017, 05, 01)));	
 		list.add(new Coleta("Carol", "São Paulo", LocalDate.of(2017, 05, 01)));	
-		list.add(new Coleta("Trend", "Curitiba", LocalDate.of(2017, 05, 01)));	
-		list.add(new Coleta("Trend", "São Paulo", LocalDate.of(2017, 05, 01)));	
-		list.add(new Coleta("TrendFlash", "Curitiba", LocalDate.of(2017, 05, 01)));	
-		list.add(new Coleta("TrendFlash", "São Paulo", LocalDate.of(2017, 05, 01)));	
+		list.add(new Coleta("Trond", "Curitiba", LocalDate.of(2017, 05, 01)));	
+		list.add(new Coleta("Trond", "São Paulo", LocalDate.of(2017, 05, 01)));	
+		list.add(new Coleta("Trondin", "Curitiba", LocalDate.of(2017, 05, 01)));	
+		list.add(new Coleta("Trondin", "São Paulo", LocalDate.of(2017, 05, 01)));	
 		
 		coletaRepository.save(list);
 	
@@ -53,6 +53,11 @@ public class TestesMongoDbApplicationTests {
 		coletaRepository.deleteAll();
 	}
 	
+	@Test
+	public void getTrondin()
+	{
+		assertEquals(2, coletaRepository.getTrondinColetas().size());
+	}
 	@Test
 	public void findAllColetas()
 	{
@@ -72,7 +77,7 @@ public class TestesMongoDbApplicationTests {
 	@Test
 	public void findByCidade() {
 		assertEquals(6, coletaRepository.findByCidade("São Paulo").size());
-		assertEquals(2, coletaRepository.findByCidade("Curitiba").size());
+		assertEquals(4, coletaRepository.findByCidade("Curitiba").size());
 		assertEquals(2, coletaRepository.findByCidade("Rio de Janeiro").size());
 		assertEquals(0, coletaRepository.findByCidade("Recife").size());
 	}
@@ -111,12 +116,12 @@ public class TestesMongoDbApplicationTests {
 	}
 	@Test
 	public void countNotTrend() {
-		assertEquals(8L, coletaRepository.countNotTrendNorTrendFlash().longValue());
+		assertEquals(8L, coletaRepository.countNotTrondNorTrondin().longValue());
 	}
 	@Test
 	public void countBy_CheckIn() {
 		
-		assertEquals(5L, coletaRepository.countNotTrendNorFlashByDate(LocalDate.of(2017, 05, 01)).longValue());
+		assertEquals(5L, coletaRepository.countNotTrondNorTrondin(LocalDate.of(2017, 05, 01)).longValue());
 	}
 	
 }

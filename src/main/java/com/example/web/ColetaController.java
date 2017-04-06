@@ -57,7 +57,7 @@ public class ColetaController {
 	@GetMapping("/{checkIn}")
 	public Long getCountExcluding(@PathVariable String checkIn)
 	{
-		return repository.countNotTrendNorFlashByDate(LocalDate.parse(checkIn, DateTimeFormatter.ISO_DATE));
+		return repository.countNotTrondNorTrondin(LocalDate.parse(checkIn, DateTimeFormatter.ISO_DATE));
 	}
 	
 	
